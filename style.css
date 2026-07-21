@@ -1,0 +1,1081 @@
+:root{
+	--bg:#0b1222;
+	--card:#10192d;
+	--card-border:#1d3f6b;
+	--accent:#1eb8ff;
+	--accent-2:#29bfff;
+	--text:#c6d6e6;
+	--muted:#8ea7c2;
+	--glass:rgba(255,255,255,.03);
+	--radius:18px;
+	--transition:.3s;
+	--glass-blur:18px;
+}
+
+*{box-sizing:border-box}
+
+body{
+	font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+	color:var(--text);
+	background-color:var(--bg);
+	-webkit-font-smoothing:antialiased;
+}
+
+/* Button base styles used site-wide */
+button,
+.mainBtn,
+.secondBtn,
+.telegramBtn,
+.bigTelegram,
+.topButton{
+	cursor:pointer;
+	border:none;
+	outline:none;
+	transition:transform var(--transition), box-shadow var(--transition), background-color var(--transition), color var(--transition);
+	font-family:inherit;
+}
+
+button:focus,
+.mainBtn:focus,
+.telegramBtn:focus,
+.bigTelegram:focus{
+	box-shadow:0 0 0 6px rgba(30,184,255,.12);
+}
+
+/* Primary call-to-action */
+.mainBtn{
+	background:linear-gradient(90deg,var(--accent),var(--accent-2));
+	color:#fff;
+	padding:12px 22px;
+	border-radius:14px;
+	font-weight:700;
+	box-shadow:0 10px 35px rgba(30,184,255,.18);
+	display:inline-block;
+	text-decoration:none;
+}
+
+/* Secondary / neutral button */
+.secondBtn{
+	background:transparent;
+	color:var(--accent-2);
+	padding:10px 18px;
+	border-radius:12px;
+	border:1px solid rgba(46,197,255,.12);
+}
+
+/* Small header Telegram button */
+.telegramBtn{
+	background:transparent;
+	color:#fff;
+	padding:8px 16px;
+	border-radius:12px;
+	border:1px solid rgba(255,255,255,.06);
+}
+
+/* Big Telegram CTA */
+.bigTelegram{
+	background:linear-gradient(90deg,#00aaff,var(--accent));
+	color:#fff;
+	padding:16px 28px;
+	border-radius:18px;
+	font-weight:800;
+	box-shadow:0 12px 45px rgba(30,184,255,.22);
+	display:inline-block;
+	text-decoration:none;
+}
+
+.mainBtn:hover,
+.bigTelegram:hover,
+.telegramBtn:hover,
+.secondBtn:hover{
+	transform:translateY(-4px);
+	box-shadow:0 18px 60px rgba(30,184,255,.14);
+}
+
+.mainBtn:active,
+.bigTelegram:active{
+	transform:translateY(0) scale(.99);
+	box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+
+.button-ghost{
+	background:transparent;
+	border:1px dashed rgba(255,255,255,.06);
+	color:var(--muted);
+	padding:10px 16px;
+	border-radius:12px;
+}
+
+.menuToggle{
+	background:transparent;
+	color:var(--text);
+	padding:8px 10px;
+	border-radius:8px;
+}
+
+.topButton{
+	width:55px;
+	height:55px;
+	border-radius:50%;
+	background:linear-gradient(180deg,var(--accent),var(--accent-2));
+	color:#fff;
+	font-size:22px;
+	border:none;
+	box-shadow:0 10px 35px rgba(30,184,255,.35);
+	position:fixed;
+	right:25px;
+	bottom:25px;
+	z-index:9999;
+	transition:transform .2s,opacity .2s;
+}
+
+.topButton:hover{transform:scale(1.08)}
+
+.mobileMenu{display:none}
+
+.mainBtn[disabled],.bigTelegram[disabled]{opacity:.6;pointer-events:none}
+
+.tooltip{position:relative}
+
+.tooltip:hover::after{content:attr(data-tip);position:absolute;bottom:125%;left:50%;transform:translateX(-50%);background:#0b1222;color:#fff;padding:6px 10px;border-radius:8px;white-space:nowrap;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+
+.card .mainBtn{margin-top:18px}
+
+.btn-row{display:flex;gap:12px;align-items:center}
+
+.aboutGrid div{
+	background:var(--card);
+	padding:30px;
+	border-radius:20px;
+	border:1px solid var(--card-border);
+	transition:var(--transition);
+}
+
+.aboutGrid div:hover{
+transform:translateY(-10px);
+border-color:#2cc3ff;
+box-shadow:0 0 30px rgba(44,195,255,.25);
+}
+
+.aboutGrid h3{
+color:#2fc4ff;
+font-size:24px;
+margin-bottom:15px;
+}
+
+.aboutGrid p{
+color:#bfd0e2;
+line-height:1.7;
+}
+
+.contact{
+padding:110px 8%;
+text-align:center;
+}
+
+.contact h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.contact p{
+font-size:20px;
+color:#b7c4d8;
+max-width:700px;
+margin:0 auto 40px;
+line-height:1.8;
+}
+
+.bigTelegram{
+display:inline-block;
+padding:20px 45px;
+background:#29bfff;
+color:#fff;
+font-size:20px;
+font-weight:bold;
+text-decoration:none;
+border-radius:18px;
+transition:.3s;
+
+	/* Additional mobile improvements */
+	@media(max-width:900px){
+		:root{--radius:14px}
+		body{font-size:15px}
+		.hero{padding:40px 18px}
+		.hero h1{font-size:34px;line-height:1.05}
+		.heroCard{max-width:100%;padding:18px;border-radius:14px}
+		.heroText{padding:0 8px}
+		.orderForm{gap:10px}
+		.form-input,.form-textarea{font-size:15px;padding:12px}
+		.form-actions{flex-direction:column;align-items:stretch}
+		.form-actions .mainBtn,.form-actions .button-ghost{width:100%}
+		.mainBtn{padding:14px 18px;font-size:16px}
+		.button-ghost{padding:12px 16px}
+		.portfolioGrid{padding:18px}
+		.workInfo h3{font-size:18px}
+		.workInfo p{font-size:14px}
+		.bigTelegram{padding:14px 22px}
+	}
+
+	@media(max-width:480px){
+		.hero h1{font-size:28px}
+		.hero p{font-size:16px}
+		.form-label{font-size:12px}
+		.form-input,.form-textarea{padding:10px;font-size:14px}
+		.spinner{width:20px;height:20px;border-width:3px}
+		.topButton{width:48px;height:48px;right:18px;bottom:18px}
+		nav{display:none}
+	}
+
+	/* Improve touch target spacing globally on small screens */
+	@media (max-width:900px){
+		a.mainBtn, .bigTelegram, .telegramBtn, .mainBtn, .secondBtn{padding-top:14px;padding-bottom:14px}
+	}
+box-shadow:0 0 35px rgba(41,191,255,.35);
+}
+
+.bigTelegram:hover{
+transform:translateY(-6px) scale(1.03);
+box-shadow:0 0 50px rgba(41,191,255,.6);
+}
+
+footer{
+margin-top:60px;
+padding:35px;
+text-align:center;
+border-top:1px solid #1d3f6b;
+background:#0b1222;
+color:#8ea7c2;
+}
+
+section{
+animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(35px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.card,
+.aboutGrid div,
+.heroCard{
+animation:floatCard 5s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+0%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-6px);
+}
+100%{
+transform:translateY(0);
+}
+}
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#08111f;
+}
+
+::-webkit-scrollbar-thumb{
+background:#2abfff;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#4fd0ff;
+}
+
+::selection{
+background:#2abfff;
+color:#fff;
+}
+
+button{
+cursor:pointer;
+}
+
+a{
+transition:.3s;
+}
+
+/* Navigation base styles */
+nav{
+	display:flex;
+	gap:18px;
+	align-items:center;
+}
+
+/* Navigation link styles */
+nav a{
+	color:rgba(255,255,255,.85);
+	padding:8px 14px;
+	border-radius:10px;
+	text-decoration:none;
+	font-weight:600;
+	transition:background var(--transition), color var(--transition), transform var(--transition);
+}
+
+nav a.nav-link{
+	background:transparent;
+}
+
+nav a:hover{
+	background:linear-gradient(90deg, rgba(30,184,255,.12), rgba(41,191,255,.08));
+	color:#fff;
+	transform:translateY(-2px);
+}
+
+nav a.active{
+	background:linear-gradient(90deg,var(--accent),var(--accent-2));
+	color:#05121a;
+	box-shadow:0 6px 24px rgba(30,184,255,.14);
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+@media(max-width:1100px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.heroText{
+max-width:100%;
+}
+
+.buttons{
+justify-content:center;
+}
+
+.heroCard{
+width:100%;
+max-width:500px;
+}
+
+nav{
+display:none;
+}
+
+.header{
+padding:20px;
+}
+
+.logo{
+font-size:28px;
+}
+
+}
+
+@media(max-width:700px){
+
+.hero{
+padding:60px 25px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.services,
+.about,
+.contact{
+padding:70px 25px;
+}
+
+.services h2,
+.about h2,
+.contact h2{
+font-size:34px;
+}
+
+.telegramBtn{
+padding:10px 18px;
+font-size:15px;
+}
+
+.mainBtn,
+.secondBtn{
+width:100%;
+text-align:center;
+}
+
+.bigTelegram{
+width:100%;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.aboutGrid{
+grid-template-columns:1fr;
+}
+
+}/* ---------- Додаткові ефекти ---------- */
+
+.hero{
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:#00aaff22;
+filter:blur(140px);
+right:-150px;
+top:-150px;
+z-index:-1;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+width:350px;
+height:350px;
+background:#0066ff22;
+filter:blur(120px);
+left:-120px;
+bottom:-100px;
+z-index:-1;
+}
+
+.logo:hover{
+transform:scale(1.05);
+transition:.3s;
+}
+
+.card{
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.08),
+transparent
+);
+transition:.7s;
+}
+
+.card:hover::before{
+left:120%;
+}
+
+.mainBtn,
+.telegramBtn,
+.bigTelegram{
+position:relative;
+overflow:hidden;
+}
+
+.mainBtn::before,
+.telegramBtn::before,
+.bigTelegram::before{
+content:"";
+position:absolute;
+left:-100%;
+top:0;
+width:100%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.3),
+transparent
+);
+transition:.6s;
+}
+
+.mainBtn:hover::before,
+.telegramBtn:hover::before,
+.bigTelegram:hover::before{
+left:100%;
+}
+
+h1,h2,h3{
+letter-spacing:.5px;
+}
+
+.hero h1{
+text-shadow:0 0 25px rgba(0,170,255,.3);
+}
+
+.services h2,
+.about h2,
+.contact h2{
+color:#ffffff;
+text-shadow:0 0 15px rgba(0,180,255,.25);
+}
+
+.card p,
+.about p,
+.contact p{
+font-weight:300;
+}
+
+.header{
+transition:.4s;
+}
+
+.header:hover{
+background:#0b1629;
+}
+
+.cards{
+perspective:1000px;
+}
+
+.card:hover{
+transform:
+translateY(-12px)
+rotateX(4deg);
+}
+
+.heroCard{
+transition:.4s;
+}
+
+.heroCard:hover{
+transform:scale(1.03);
+box-shadow:
+0 0 60px rgba(0,170,255,.3);
+}
+
+.aboutGrid div{
+position:relative;
+}
+
+.aboutGrid div::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+height:3px;
+width:0;
+background:#25c1ff;
+transition:.4s;
+}
+
+.aboutGrid div:hover::after{
+width:100%;
+}
+
+footer p{
+letter-spacing:1px;
+font-size:15px;
+}
+
+body{
+background-image:
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+background-size:40px 40px;
+}
+
+html{
+scroll-padding-top:100px;
+} /* ===== Статистика ===== */
+
+.stats{
+padding:100px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.stat{
+background:#111a30;
+border:1px solid #1d3f6b;
+border-radius:20px;
+padding:35px;
+text-align:center;
+transition:.3s;
+}
+
+.stat:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(0,170,255,.25);
+}
+
+.stat h2{
+font-size:48px;
+color:#2ec5ff;
+margin-bottom:10px;
+}
+
+.stat p{
+color:#c6d6e6;
+}
+
+/* ===== Портфоліо ===== */
+
+.portfolio{
+padding:100px 8%;
+}
+
+.portfolio h2{
+text-align:center;
+font-size:46px;
+margin-bottom:50px;
+}
+
+/* Portfolio grid */
+.portfolioGrid{
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+	gap:18px;
+	padding:30px 8%;
+}
+.portfolioGrid{
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+	gap:30px;
+}
+
+/* Lightbox */
+.lb-overlay{position:fixed;inset:0;background:rgba(6,12,20,0.85);display:flex;align-items:center;justify-content:center;z-index:10000;opacity:0;pointer-events:none;transition:opacity .2s}
+.lb-overlay.active{opacity:1;pointer-events:auto}
+.lb-overlay img{max-width:90%;max-height:90%;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:18px;right:22px;color:#fff;font-size:28px;background:transparent;border:none;cursor:pointer}
+
+/* Order form redesign */
+.heroCard{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:26px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);max-width:520px}
+.orderForm{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.form-row{display:flex;flex-direction:column}
+.form-label{font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:600}
+.form-input,.form-textarea{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;color:var(--text);outline:none}
+.form-input:focus,.form-textarea:focus{box-shadow:0 8px 30px rgba(30,184,255,.08);border-color:rgba(30,184,255,.18)}
+.form-textarea{min-height:80px;resize:vertical}
+.form-actions{display:flex;gap:10px;align-items:center;margin-top:6px}
+.form-status{display:flex;align-items:center;gap:10px;margin-top:8px}
+.orderStatus{font-size:14px;color:var(--muted);margin:0}
+.form-note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* spinner */
+.spinner{width:18px;height:18px;border-radius:50%;border:3px solid rgba(255,255,255,0.06);border-top-color:var(--accent);display:inline-block;opacity:0;transform:scale(.9);transition:opacity .15s,transform .15s}
+.spinner.active{opacity:1;transform:scale(1)}
+
+.portfolioGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.work{
+background:#111a30;
+border-radius:20px;
+overflow:hidden;
+border:1px solid #1d3f6b;
+transition:.3s;
+}
+
+.work:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(0,170,255,.25);
+}
+
+.work img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.workInfo{
+padding:25px;
+}
+
+.workInfo h3{
+margin-bottom:12px;
+color:#2ec5ff;
+}
+
+.workInfo p{
+color:#c6d6e6;
+line-height:1.7;
+}
+
+/* ===== Відгуки ===== */
+
+.reviews{
+padding:100px 8%;
+}
+
+.reviews h2{
+text-align:center;
+font-size:46px;
+margin-bottom:45px;
+}
+
+.reviewGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.review{
+background:#10192d;
+padding:30px;
+border-radius:20px;
+border:1px solid #1d3f6b;
+}
+
+.review h4{
+margin-bottom:12px;
+color:#2ec5ff;
+}
+
+.review p{
+line-height:1.7;
+color:#c6d6e6;
+}
+
+.review span{
+display:block;
+margin-top:20px;
+color:#ffc857;
+}
+
+/* ===== FAQ ===== */
+
+.faq{
+padding:100px 8%;
+}
+
+.faq h2{
+text-align:center;
+font-size:46px;
+margin-bottom:40px;
+}
+
+.faqItem{
+background:#10192d;
+margin-bottom:18px;
+padding:25px;
+border-radius:16px;
+border:1px solid #1d3f6b;
+transition:.3s;
+}
+
+.faqItem:hover{
+border-color:#2ec5ff;
+}
+
+.faqItem h3{
+color:#2ec5ff;
+margin-bottom:12px;
+}
+
+.faqItem p{
+color:#c6d6e6;
+line-height:1.7;
+} /* ========================= */
+/* Premium Effects */
+/* ========================= */
+
+.glow{
+position:absolute;
+width:350px;
+height:350px;
+border-radius:50%;
+background:rgba(0,170,255,.18);
+filter:blur(120px);
+pointer-events:none;
+animation:glowMove 12s ease-in-out infinite;
+}
+
+@keyframes glowMove{
+
+0%{
+transform:translate(0,0);
+}
+
+25%{
+transform:translate(150px,-80px);
+}
+
+50%{
+transform:translate(-120px,60px);
+}
+
+75%{
+transform:translate(80px,140px);
+}
+
+100%{
+transform:translate(0,0);
+}
+
+}
+
+.hero h1{
+
+background:linear-gradient(
+90deg,
+#ffffff,
+#67d7ff,
+#1ea7ff,
+#ffffff
+);
+
+background-size:300%;
+background-clip:text;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:gradientText 7s linear infinite;
+
+}
+
+@keyframes gradientText{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:300%;
+}
+
+}
+
+.card,
+.stat,
+.review,
+.work,
+.aboutGrid div{
+
+backdrop-filter:blur(18px);
+
+}
+
+.card:hover,
+.stat:hover,
+.review:hover,
+.work:hover{
+
+transform:
+translateY(-10px)
+scale(1.02);
+
+}
+
+.heroCard:hover{
+
+transform:
+rotateY(4deg)
+rotateX(3deg);
+
+}
+
+.mainBtn{
+
+animation:pulse 3s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+box-shadow:
+0 0 0 rgba(0,170,255,.4);
+
+}
+
+50%{
+
+box-shadow:
+0 0 35px rgba(0,170,255,.7);
+
+}
+
+100%{
+
+box-shadow:
+0 0 0 rgba(0,170,255,.4);
+
+}
+
+}
+
+.telegramBtn:hover,
+.mainBtn:hover,
+.bigTelegram:hover{
+
+letter-spacing:1px;
+
+}
+
+.card h3::before{
+
+content:"🚀 ";
+
+}
+
+.stat h2{
+
+text-shadow:
+0 0 25px
+rgba(0,180,255,.5);
+
+}
+
+footer{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+footer::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-100%;
+
+width:100%;
+
+height:2px;
+
+background:linear-gradient(
+90deg,
+transparent,
+#00bfff,
+transparent
+);
+
+animation:footerLine 5s linear infinite;
+
+}
+
+@keyframes footerLine{
+
+100%{
+
+left:100%;
+
+}
+
+}
+
+.hero{
+
+min-height:100vh;
+
+}
+
+.telegramBtn{
+
+font-size:16px;
+
+}
+
+.mainBtn{
+
+font-size:18px;
+
+}
+
+.secondBtn{
+
+font-size:18px;
+
+}
+
+.card{
+
+cursor:pointer;
+
+}
+
+.card:active{
+
+transform:scale(.98);
+
+}
+
+html{
+
+overflow-x:hidden;
+
+}
+
+body{
+
+overflow-x:hidden;
+
+} .show{
+opacity:1!important;
+transform:translateY(0)!important;
+}
+
+.card,
+.stat,
+.review,
+.work,
+.aboutGrid div,
+.heroCard{
+opacity:0;
+transform:translateY(50px);
+transition:.8s;
+}
+
+.topButton{
+position:fixed;
+right:25px;
+bottom:25px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:#1eb8ff;
+color:#fff;
+font-size:22px;
+cursor:pointer;
+opacity:0;
+pointer-events:none;
+transition:.3s;
+box-shadow:0 0 25px rgba(30,184,255,.5);
+z-index:9999;
+}
+
+.topButton:hover{
+transform:scale(1.1);
+}

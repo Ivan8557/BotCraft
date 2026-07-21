@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotCraft | Telegram-боти під ключ</title>
+    <meta name="description" content="Розробка Telegram-ботів для бізнесу та особистих проєктів">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%231eb8ff'/%3E%3Ctext%20x='50'%20y='54'%20font-size='50'%20text-anchor='middle'%20fill='%23ffffff'%3EB%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">BOTCRAFT</div>
+
+    <nav>
+        <a class="nav-link active" href="#home">Головна</a>
+        <a class="nav-link" href="#services">Послуги</a>
+        <a class="nav-link" href="#process">Чому ми</a>
+        <a class="nav-link" href="#contact">Контакти</a>
+    </nav>
+
+    <a class="telegramBtn" href="https://t.me/SapogXx" target="_blank">
+        Telegram
+    </a>
+</header>
+
+<section class="hero" id="home">
+
+<div class="heroText">
+
+<h1>
+Telegram-боти,<br>
+які працюють<br>
+на ваш бізнес
+</h1>
+
+<p>
+Створюю сучасних Telegram-ботів:
+автоматизація, заявки,
+магазини, меню,
+оплати та індивідуальні рішення.
+</p>
+
+<p>
+Маю досвід інтеграції платежів, CRM, та Webhook-автоматизації. Працюю з Python, Node.js та популярними бібліотеками для Telegram API.
+Пропоную повний супровід: від технічного завдання до запуску й моніторингу в продакшні.
+</p>
+
+<p>
+Працюю за прозорими етапами: аналіз вимог, дизайн чат-логіки, розробка, тестування та підтримка. Надаю оцінку термінів і вартості перед початком робіт.
+</p>
+
+<div class="buttons">
+
+<a href="https://t.me/SapogXx" target="_blank" class="mainBtn">
+Замовити зараз
+</a>
+
+<a href="#services" class="secondBtn">
+Послуги
+</a>
+
+</div>
+
+</div>
+
+<div class="heroCard">
+
+<h2>🚀 Швидкий старт</h2>
+
+
+<p>Замовлення під ключ: опишіть задачу коротко, залиште контакти — я зв'яжусь для узгодження термінів і деталей.</p>
+
+<!-- Redesigned order card -->
+<form id="orderForm" class="orderForm">
+    <div class="form-row">
+        <label class="form-label">Ім'я</label>
+        <input class="form-input" type="text" name="name" required placeholder="Ваше ім'я">
+    </div>
+    <div class="form-row">
+        <label class="form-label">Телефон або Email</label>
+        <input class="form-input" type="text" name="contact" required placeholder="Телефон або Email">
+    </div>
+    <div class="form-row">
+        <label class="form-label">Деталі замовлення</label>
+        <textarea class="form-textarea" name="message" rows="4" placeholder="Короткий опис завдання"></textarea>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="mainBtn">Надіслати замовлення</button>
+        <button type="button" class="button-ghost" id="demoFill">Приклад</button>
+    </div>
+
+    <div class="form-status">
+        <span id="orderSpinner" class="spinner" aria-hidden="true"></span>
+        <p id="orderStatus" class="orderStatus">&nbsp;</p>
+    </div>
+
+    <p class="form-note">Ми не передаємо ваші контакти третім особам. Підтримка після запуску доступна за домовленістю.</p>
+</form>
+
+
+<div class="miniCard">
+<span>⚡</span>
+<p>Перша відповідь протягом дня</p>
+</div>
+
+<div class="miniCard">
+<span>🤖</span>
+<p>Telegram-боти будь-якої складності*</p>
+</div>
+
+<div class="miniCard">
+<span>🔒</span>
+<p>Ваші дані залишаються конфіденційними</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="services" id="services">
+
+<h2>Послуги</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Бот для бізнесу</h3>
+<p>
+Автоматичний прийом заявок і обробка клієнтських звернень. Налаштовую швидкі відповіді, меню з кнопками, фільтри заявок і інтеграцію з CRM.
+Ідеально підходить для сервісів, салонів і локального бізнесу.
+</p>
+</div>
+
+<div class="card">
+<h3>Інтернет-магазин</h3>
+<p>
+Каталог товарів з пошуком, корзина, оформлення замовлення і інтеграція з платіжними системами. Підключаю відправку повідомлень менеджерам і клієнтам з підтвердженням.
+</p>
+</div>
+
+<div class="card">
+<h3>Бот для запису</h3>
+<p>
+Система бронювань з календарем, підтвердженнями, нагадуваннями і можливістю відмінити або перенести запис.
+Підтримка синхронізації з Google Calendar або внутрішніми CRM.
+</p>
+</div>
+
+<div class="card">
+<h3>Індивідуальний проєкт</h3>
+<p>
+Проєкти під ключ — складні сценарії, інтеграції з зовнішніми API, багатокористувацькі панелі управління та специфічні бізнес-логіки.
+Обговорюємо архітектуру, строки та етапи робіт перед стартом.
+</p>
+</div>
+
+<div class="card">
+<h3>Аналітика та звіти</h3>
+<p>
+Налаштування збору даних про взаємодію користувачів, конверсій і типових сценаріїв. Генерую звіти, інтегрую з Google Sheets, Excel або BI-системами.
+</p>
+</div>
+
+<div class="card">
+<h3>Підтримка та хостинг</h3>
+<p>
+Супровід після запуску: моніторинг, виправлення помилок, оновлення функцій і безперервний хостинг на надійних платформах. Можлива SLA-підтримка.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Portfolio -->
+<section class="portfolio" id="portfolio">
+
+<h2>Портфоліо</h2>
+
+<div class="portfolioGrid">
+
+<div class="work">
+    <img src="images/placeholder1.svg" alt="project">
+    <div class="workInfo">
+        <h3>Бот-магазин: SmartShop</h3>
+        <p>Повний каталог, оплати та управління замовленнями через адмін-панель.</p>
+    </div>
+</div>
+
+<div class="work">
+    <img src="images/placeholder2.svg" alt="project">
+    <div class="workInfo">
+        <h3>Сервіс бронювання</h3>
+        <p>Бот для запису клієнтів з автоматичними нагадуваннями.</p>
+    </div>
+</div>
+
+<div class="work">
+    <img src="images/placeholder3.svg" alt="project">
+    <div class="workInfo">
+        <h3>Промо-бот</h3>
+        <p>Кампанії, розсилки та аналітика взаємодії.</p>
+    </div>
+</div>
+
+<div class="work">
+    <img src="images/placeholder4.svg" alt="project">
+    <div class="workInfo">
+        <h3>Інтеграція з CRM</h3>
+        <p>Налаштування потоку лідів і синхронізація даних.</p>
+    </div>
+</div>
+
+</div>
+
+</section>
+
+<!-- Reviews -->
+<section class="reviews" id="reviews">
+
+<h2>Відгуки клієнтів</h2>
+
+<div class="reviewGrid">
+
+<div class="review">
+    <h4>Олег — CEO</h4>
+    <p>Бот допоміг нам автоматизувати 80% заявок. Рекомендую!</p>
+    <span>⭐️⭐️⭐️⭐️⭐️</span>
+</div>
+
+<div class="review">
+    <h4>Марія — маркетолог</h4>
+    <p>Зручна адмінка та швидка інтеграція з платіжними системами.</p>
+    <span>⭐️⭐️⭐️⭐️⭐️</span>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="process" id="process">
+
+<h2>Як ми працюємо</h2>
+
+<div class="aboutGrid">
+
+<div>
+<h3>1. Консультація</h3>
+<p>Обговорюємо цілі, функціонал і бажані інтеграції. Оцінюємо термін і бюджет.</p>
+</div>
+
+<div>
+<h3>2. План і дизайн</h3>
+<p>Готую технічне завдання, чат-флоу та простий дизайн інтерфейсу (за потреби).</p>
+</div>
+
+<div>
+<h3>3. Розробка і тестування</h3>
+<p>Реалізація, підключення API, ретельне тестування сценаріїв та виправлення помилок.</p>
+</div>
+
+<div>
+<h3>4. Запуск і підтримка</h3>
+<p>Допомагаю з розгортанням, моніторингом і подальшим розвитком бота.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="faq" id="faq">
+<h2>Питання — відповіді</h2>
+<div class="cards" style="padding:20px 8%;">
+<div class="card">
+    <h3>Скільки часу займає розробка?</h3>
+    <p>Залежить від складності: простий бот — від 3–7 днів, проміжний — 2–4 тижні, великий проєкт — індивідуально.</p>
+</div>
+<div class="card">
+    <h3>Які платіжні системи підтримуються?</h3>
+    <p>Підключаю популярні сервіси: LiqPay, Fondy, Stripe, PayPal — залежить від регіону і вимог замовника.</p>
+</div>
+<div class="card">
+    <h3>Чи потрібен сервер для бота?</h3>
+    <p>Зазвичай так — для вебхуків і бізнес-логіки. Допоможу з вибором хостингу та розгортанням.</p>
+</div>
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2>Готові почати?</h2>
+
+<p>
+Напишіть мені в Telegram,
+і ми обговоримо вашого майбутнього бота.
+</p>
+
+<a href="https://t.me/SapogXx" class="bigTelegram" target="_blank">
+Написати в Telegram
+</a>
+
+<p style="margin-top:18px; max-width:700px; color:var(--muted);">Перед контактом підготуйте короткий опис задачі, бажані функції та приклади — це допоможе швидше підготувати попередню оцінку.</p>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 BOTCRAFT
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
