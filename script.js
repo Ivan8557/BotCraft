@@ -273,10 +273,7 @@ if(orderForm){
 			contact: orderForm.contact.value,
 			message: orderForm.message.value
 		};
-			const endpoints = [
-				'http://localhost:8001/order',
-				'http://127.0.0.1:8001/order'
-			];
+	const endpoints = ['/order'];
 			let resp = null;
 			let lastError = null;
 			for(const url of endpoints){
@@ -292,6 +289,9 @@ if(orderForm){
 						message = txt || message;
 					}
 					statusEl.textContent = 'Помилка: ' + message;
+					// re-enable buttons and hide spinner before exiting
+					spinner.classList.remove('active');
+					buttons.forEach(b=>b.disabled = false);
 					return;
 				}catch(err){
 					lastError = err;
