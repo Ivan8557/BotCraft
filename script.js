@@ -6,37 +6,6 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
 // ----------------------------
-// Reveal Animation
-// ----------------------------
-
-const revealItems=document.querySelectorAll(
-".card,.aboutGrid div,.stat,.work,.review,.faqItem"
-);
-
-const revealObserver=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},{
-threshold:0.15
-});
-
-revealItems.forEach(item=>{
-
-revealObserver.observe(item);
-
-});
-
-
-// ----------------------------
 // Smooth Scroll
 // ----------------------------
 
@@ -50,11 +19,7 @@ if(target.length>1){
 
 e.preventDefault();
 
-document.querySelector(target).scrollIntoView({
-
-behavior:"smooth"
-
-});
+document.querySelector(target).scrollIntoView();
 
 }
 
@@ -99,46 +64,11 @@ topButton.addEventListener("click",()=>{
 
 window.scrollTo({
 
-top:0,
-
-behavior:"smooth"
+top:0
 
 });
 
 });
-
-
-// ----------------------------
-// Typing Effect
-// ----------------------------
-
-const heroTitle=document.querySelector(".hero h1");
-
-if(heroTitle){
-
-const text=heroTitle.innerText;
-
-heroTitle.innerHTML="";
-
-let i=0;
-
-function type(){
-
-if(i<text.length){
-
-heroTitle.innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(type,25);
-
-}
-
-}
-
-type();
-
-}
 
 
 // ----------------------------
@@ -149,56 +79,14 @@ const counters=document.querySelectorAll(".counter");
 
 counters.forEach(counter=>{
 
-const target=Number(counter.dataset.target);
-
-let value=0;
-
-const speed=Math.ceil(target/100);
-
-
-function update(){
-
-if(value<target){
-
-value+=speed;
-
-counter.innerText=value;
-
-requestAnimationFrame(update);
-
-}else{
-
-counter.innerText=target;
-
-}
-
-}
-
-
-update();
+counter.innerText=counter.dataset.target || counter.innerText;
 
 });
 
 
 // ----------------------------
-// Mouse Glow
+// Navbar Shadow
 // ----------------------------
-
-const glow=document.createElement("div");
-
-glow.className="glow";
-
-document.body.appendChild(glow);
-
-
-document.addEventListener("mousemove",(e)=>{
-
-glow.style.left=(e.clientX-170)+"px";
-
-glow.style.top=(e.clientY-170)+"px";
-
-});
-
 
 // ----------------------------
 // Navbar Shadow
@@ -225,31 +113,6 @@ header.style.boxShadow="none";
 });
 
 
-// ----------------------------
-// Telegram Button Animation
-// ----------------------------
-
-const telegramButtons=document.querySelectorAll(
-".telegramBtn,.mainBtn,.bigTelegram"
-);
-
-
-telegramButtons.forEach(btn=>{
-
-btn.addEventListener("mouseenter",()=>{
-
-btn.style.transform="translateY(-5px) scale(1.03)";
-
-});
-
-
-btn.addEventListener("mouseleave",()=>{
-
-btn.style.transform="translateY(0) scale(1)";
-
-});
-
-});
 // ----------------------------
 // Footer Year
 // ----------------------------
@@ -415,73 +278,18 @@ mobileMenu.classList.remove("active");
 
 
 // ----------------------------
-// Parallax Effect
-// ----------------------------
-
-const parallax=document.querySelectorAll(".parallax");
-
-
-window.addEventListener("mousemove",(e)=>{
-
-
-const x=e.clientX/window.innerWidth;
-
-const y=e.clientY/window.innerHeight;
-
-
-parallax.forEach(item=>{
-
-
-const speed=Number(item.dataset.speed)||20;
-
-
-item.style.transform =
-`translate(${(x*speed).toFixed(2)}px, ${(y*speed).toFixed(2)}px)`;
-
-
-});
-
-
-});
-// ----------------------------
-// Card Tilt
+// Card Hover Interaction
 // ----------------------------
 
 document.querySelectorAll(".card").forEach(card=>{
 
-
-card.addEventListener("mousemove",(e)=>{
-
-
-const rect=card.getBoundingClientRect();
-
-
-const x=e.clientX-rect.left;
-
-const y=e.clientY-rect.top;
-
-
-const rotateY=((x/rect.width)-0.5)*16;
-
-const rotateX=((y/rect.height)-0.5)*-16;
-
-
-card.style.transform=
-`perspective(1000px)
-rotateX(${rotateX}deg)
-rotateY(${rotateY}deg)
-translateY(-10px)`;
-
-
+card.addEventListener("mouseenter",()=>{
+    card.style.transform="translateY(-6px)";
 });
-
 
 card.addEventListener("mouseleave",()=>{
-
-card.style.transform="";
-
+    card.style.transform="";
 });
-
 
 });
 
@@ -490,54 +298,9 @@ card.style.transform="";
 // Fade Hero
 // ----------------------------
 
-const hero=document.querySelector(".hero");
-
-
-window.addEventListener("scroll",()=>{
-
-
-if(hero){
-
-hero.style.opacity=1-window.scrollY/700;
-
-}
-
-
-});
-
-
 // ----------------------------
 // Floating Animation
 // ----------------------------
-
-const floating=document.querySelectorAll(
-".work,.review"
-);
-
-
-floating.forEach((item,index)=>{
-
-
-setInterval(()=>{
-
-
-item.style.transform="translateY(-6px)";
-
-
-setTimeout(()=>{
-
-
-item.style.transform="translateY(0px)";
-
-
-},1200);
-
-
-},3500+(index*300));
-
-
-});
-
 
 // ----------------------------
 // Loader
@@ -551,18 +314,7 @@ const loader=document.querySelector("#preloader");
 
 if(loader){
 
-
-loader.style.opacity="0";
-
-
-setTimeout(()=>{
-
-
 loader.remove();
-
-
-},600);
-
 
 }
 
@@ -571,27 +323,6 @@ loader.remove();
 
 
 // ----------------------------
-// Random Glow
-// ----------------------------
-
-setInterval(()=>{
-
-
-const glowEl=document.querySelector(".glow");
-
-
-if(glowEl){
-
-
-glowEl.style.opacity=Math.random();
-
-
-}
-
-
-},1200);
-
-
 // ----------------------------
 // Console Message
 // ----------------------------

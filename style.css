@@ -21,6 +21,51 @@ body{
 	-webkit-font-smoothing:antialiased;
 }
 
+html{
+	scroll-behavior:smooth;
+}
+
+.heroText,
+.heroCard,
+.card,
+.work,
+.review,
+.aboutGrid div,
+.faqItem{
+	opacity:0;
+	transform:translateY(20px);
+	animation:revealFade .85s ease forwards;
+}
+
+.heroText{animation-delay:.12s;}
+.heroCard{animation-delay:.2s;}
+.card{animation-delay:.18s;}
+.work{animation-delay:.22s;}
+.review{animation-delay:.24s;}
+.aboutGrid div{animation-delay:.18s;}
+.faqItem{animation-delay:.26s;}
+
+section,
+.card,
+.work,
+.review,
+.aboutGrid div,
+.faqItem,
+.heroCard{
+	transition:transform .35s ease, box-shadow .35s ease, background .35s ease, border-color .35s ease;
+}
+
+@keyframes revealFade{
+	from{
+		opacity:0;
+		transform:translateY(20px);
+	}
+	to{
+		opacity:1;
+		transform:translateY(0);
+	}
+}
+
 /* Button base styles used site-wide */
 button,
 .mainBtn,
@@ -187,51 +232,50 @@ line-height:1.8;
 }
 
 .bigTelegram{
-display:inline-block;
-padding:20px 45px;
-background:#29bfff;
-color:#fff;
-font-size:20px;
-font-weight:bold;
-text-decoration:none;
-border-radius:18px;
-transition:.3s;
+	display:inline-block;
+	padding:20px 45px;
+	background:#29bfff;
+	color:#fff;
+	font-size:20px;
+	font-weight:bold;
+	text-decoration:none;
+	border-radius:18px;
+	box-shadow:0 0 35px rgba(41,191,255,.35);
+	transition:transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
 
-	/* Additional mobile improvements */
-	@media(max-width:900px){
-		:root{--radius:14px}
-		body{font-size:15px}
-		.hero{padding:40px 18px}
-		.hero h1{font-size:34px;line-height:1.05}
-		.heroCard{max-width:100%;padding:18px;border-radius:14px}
-		.heroText{padding:0 8px}
-		.orderForm{gap:10px}
-		.form-input,.form-textarea{font-size:15px;padding:12px}
-		.form-actions{flex-direction:column;align-items:stretch}
-		.form-actions .mainBtn,.form-actions .button-ghost{width:100%}
-		.mainBtn{padding:14px 18px;font-size:16px}
-		.button-ghost{padding:12px 16px}
-		.portfolioGrid{padding:18px}
-		.workInfo h3{font-size:18px}
-		.workInfo p{font-size:14px}
-		.bigTelegram{padding:14px 22px}
-	}
+@media(max-width:900px){
+	:root{--radius:14px}
+	body{font-size:15px}
+	.hero{padding:40px 18px}
+	.hero h1{font-size:34px;line-height:1.05}
+	.heroCard{max-width:100%;padding:18px;border-radius:14px}
+	.heroText{padding:0 8px}
+	.orderForm{gap:10px}
+	.form-input,.form-textarea{font-size:15px;padding:12px}
+	.form-actions{flex-direction:column;align-items:stretch}
+	.form-actions .mainBtn,.form-actions .button-ghost{width:100%}
+	.mainBtn{padding:14px 18px;font-size:16px}
+	.button-ghost{padding:12px 16px}
+	.portfolioGrid{padding:18px}
+	.workInfo h3{font-size:18px}
+	.workInfo p{font-size:14px}
+	.bigTelegram{padding:14px 22px}
+}
 
-	@media(max-width:480px){
-		.hero h1{font-size:28px}
-		.hero p{font-size:16px}
-		.form-label{font-size:12px}
-		.form-input,.form-textarea{padding:10px;font-size:14px}
-		.spinner{width:20px;height:20px;border-width:3px}
-		.topButton{width:48px;height:48px;right:18px;bottom:18px}
-		nav{display:none}
-	}
+@media(max-width:480px){
+	.hero h1{font-size:28px}
+	.hero p{font-size:16px}
+	.form-label{font-size:12px}
+	.form-input,.form-textarea{padding:10px;font-size:14px}
+	.spinner{width:20px;height:20px;border-width:3px}
+	.topButton{width:48px;height:48px;right:18px;bottom:18px}
+	nav{display:none}
+}
 
-	/* Improve touch target spacing globally on small screens */
-	@media (max-width:900px){
-		a.mainBtn, .bigTelegram, .telegramBtn, .mainBtn, .secondBtn{padding-top:14px;padding-bottom:14px}
-	}
-box-shadow:0 0 35px rgba(41,191,255,.35);
+/* Improve touch target spacing globally on small screens */
+@media (max-width:900px){
+	a.mainBtn, .bigTelegram, .telegramBtn, .mainBtn, .secondBtn{padding-top:14px;padding-bottom:14px}
 }
 
 .bigTelegram:hover{
@@ -525,9 +569,7 @@ perspective:1000px;
 }
 
 .card:hover{
-transform:
-translateY(-12px)
-rotateX(4deg);
+transform:translateY(-10px);
 }
 
 .heroCard{
@@ -535,13 +577,42 @@ transition:.4s;
 }
 
 .heroCard:hover{
-transform:scale(1.03);
-box-shadow:
-0 0 60px rgba(0,170,255,.3);
+	transform:scale(1.03);
+	box-shadow:0 0 60px rgba(0,170,255,.3);
+}
+
+.miniCard{
+	display:flex;
+	align-items:center;
+	gap:14px;
+	background:rgba(255,255,255,.03);
+	border:1px solid rgba(30,184,255,.12);
+	padding:18px 22px;
+	border-radius:18px;
+	margin-top:18px;
+	box-shadow:0 10px 30px rgba(0,0,0,.12);
+	transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+
+.miniCard:hover{
+	transform:translateY(-4px);
+	box-shadow:0 18px 45px rgba(0,0,0,.18);
+	background:rgba(255,255,255,.05);
+}
+
+.miniCard span{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:42px;
+	height:42px;
+	border-radius:14px;
+	background:rgba(30,184,255,.16);
+	font-size:22px;
 }
 
 .aboutGrid div{
-position:relative;
+	position:relative;
 }
 
 .aboutGrid div::after{
@@ -771,70 +842,10 @@ line-height:1.7;
 /* Premium Effects */
 /* ========================= */
 
-.glow{
-position:absolute;
-width:350px;
-height:350px;
-border-radius:50%;
-background:rgba(0,170,255,.18);
-filter:blur(120px);
-pointer-events:none;
-animation:glowMove 12s ease-in-out infinite;
-}
-
-@keyframes glowMove{
-
-0%{
-transform:translate(0,0);
-}
-
-25%{
-transform:translate(150px,-80px);
-}
-
-50%{
-transform:translate(-120px,60px);
-}
-
-75%{
-transform:translate(80px,140px);
-}
-
-100%{
-transform:translate(0,0);
-}
-
-}
 
 .hero h1{
-
-background:linear-gradient(
-90deg,
-#ffffff,
-#67d7ff,
-#1ea7ff,
-#ffffff
-);
-
-background-size:300%;
-background-clip:text;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-animation:gradientText 7s linear infinite;
-
-}
-
-@keyframes gradientText{
-
-0%{
-background-position:0%;
-}
-
-100%{
-background-position:300%;
-}
-
+color:#ffffff;
+text-shadow:0 0 20px rgba(30,190,255,.25);
 }
 
 .card,
@@ -859,41 +870,13 @@ scale(1.02);
 }
 
 .heroCard:hover{
-
-transform:
-rotateY(4deg)
-rotateX(3deg);
-
+transform:scale(1.02);
+box-shadow:0 0 40px rgba(0,170,255,.12);
 }
 
 .mainBtn{
 
-animation:pulse 3s infinite;
-
-}
-
-@keyframes pulse{
-
-0%{
-
-box-shadow:
-0 0 0 rgba(0,170,255,.4);
-
-}
-
-50%{
-
-box-shadow:
-0 0 35px rgba(0,170,255,.7);
-
-}
-
-100%{
-
-box-shadow:
-0 0 0 rgba(0,170,255,.4);
-
-}
+box-shadow:0 10px 35px rgba(30,184,255,.18);
 
 }
 
@@ -927,40 +910,6 @@ overflow:hidden;
 
 }
 
-footer::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:-100%;
-
-width:100%;
-
-height:2px;
-
-background:linear-gradient(
-90deg,
-transparent,
-#00bfff,
-transparent
-);
-
-animation:footerLine 5s linear infinite;
-
-}
-
-@keyframes footerLine{
-
-100%{
-
-left:100%;
-
-}
-
-}
 
 .hero{
 
@@ -1010,16 +959,6 @@ overflow-x:hidden;
 
 }
 
-.card,
-.stat,
-.review,
-.work,
-.aboutGrid div,
-.heroCard{
-opacity:1;
-transform:none;
-transition:none;
-}
 
 .topButton{
 position:fixed;
@@ -1043,3 +982,4 @@ z-index:9999;
 .topButton:hover{
 transform:scale(1.1);
 }
+
