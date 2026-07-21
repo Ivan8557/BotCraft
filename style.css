@@ -248,39 +248,6 @@ background:#0b1222;
 color:#8ea7c2;
 }
 
-section{
-animation:fadeUp .8s ease;
-}
-
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(35px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-.card,
-.aboutGrid div,
-.heroCard{
-animation:floatCard 5s ease-in-out infinite;
-}
-
-@keyframes floatCard{
-0%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(-6px);
-}
-100%{
-transform:translateY(0);
-}
-}
-
 ::-webkit-scrollbar{
 width:10px;
 }
@@ -1041,9 +1008,6 @@ body{
 
 overflow-x:hidden;
 
-} .show{
-opacity:1!important;
-transform:translateY(0)!important;
 }
 
 .card,
@@ -1052,9 +1016,9 @@ transform:translateY(0)!important;
 .work,
 .aboutGrid div,
 .heroCard{
-opacity:0;
-transform:translateY(50px);
-transition:.8s;
+opacity:1;
+transform:none;
+transition:none;
 }
 
 .topButton{
