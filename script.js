@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 // ----------------------------
 
 const revealItems=document.querySelectorAll(
-".card,.heroCard,.aboutGrid div,.stat,.work,.review,.faqItem"
+".card,.aboutGrid div,.stat,.work,.review,.faqItem"
 );
 
 const revealObserver=new IntersectionObserver((entries)=>{
@@ -511,7 +511,7 @@ hero.style.opacity=1-window.scrollY/700;
 // ----------------------------
 
 const floating=document.querySelectorAll(
-".heroCard,.work,.review"
+".work,.review"
 );
 
 
